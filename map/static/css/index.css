@@ -1,0 +1,45 @@
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.suggest {
+    text-decoration: none;
+    color: white;
+    border: white dashed;
+    padding: 5px;
+    border-bottom: 2px;
+    transition: all .5s ease;
+}
+
+.suggest:hover {
+    color: black;
+}
+
+.map-container {
+    height: 400px;
+}
+
+.map-top-label {
+    color: aliceblue;
+    text-align: center;
+    width: 250px;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#map {
+    height: 400px;
+    width: 250px;
+}
+
+.details-container {
+    border-radius: 30px;
+    height: 450px;
+    overflow-y: scroll;
+}

@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <title>Suggestion</title>
+  </head>
+
+  <style>
+    .suggest {
+      text-decoration: none;
+      color: white;
+      border: white dashed;
+      padding: 5px;
+      border-bottom: 2px;
+      transition: all 0.5s ease;
+    }
+
+    .suggest:hover {
+      color: black;
+    }
+  </style>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-success mb-5"
+      aria-label="Fifth navbar example"
+    >
+      <div class="container-fluid">
+        <h1 class="navbar-brand d-flex align-items-center fs-4 text-white mb-0">
+          <img
+            src="{% static 'img/road.png' %}"
+            width="38px"
+            height="30px"
+            class="me-3"
+            alt="Mada"
+            style="border-radius: 20px"
+          />
+          Roads
+        </h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbars"
+          aria-controls="navbars"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbars">
+          <a class="ms-3 ms-auto suggest" href="{% url 'index' %}">Map</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-bg-light mt-5">
+      <div class="row shadow d-flex align-items-center mb-1 pt-3">
+        <p class="col-md-2"><b>Road</b></p>
+        <p class="col-md-5"><b>For</b></p>
+        <p class="col-md-3"><b>Population</b></p>
+        <p class="col-md-2"><b>Hospital</b></p>
+      </div>
+
+      {% for sugg in suggestion %}
+      <div class="row shadow d-flex align-items-center mb-1">
+        <p class="col-md-2">{{ sugg.nr }}</p>
+        <p class="col-md-5">{{ sugg.start }} - {{ sugg.end }}</p>
+        <p class="col-md-3">{{ sugg.population }}</p>
+        <p class="col-md-2">{{ sugg.hospital }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
